@@ -1,6 +1,10 @@
+<script>
+
 function send(){
 
-let text=document.getElementById("msg").value.toLowerCase().trim();
+let text=document.getElementById("msg").value
+.toLowerCase()
+.trim();
 
 if(text=="") return;
 
@@ -8,31 +12,43 @@ let reply="🤔 Mujhe abhi iska answer nahi pata. Dusre shabdon me puchho.";
 
 if(text.includes("hello") || text.includes("hi")){
 
-reply="👋 Hello! Aap kaise ho?";
+reply="👋 Hello!";
 
 }
 
-else if(text.includes("namaste")){
+else if(text.includes("how are you")){
 
-reply="🙏 Namaste!";
+reply="😊 Main theek hoon. Aap kaise ho?";
 
 }
 
-else if(text.includes("kaise ho") || text.includes("kya haal hai")){
+else if(text.includes("kaise ho")){
+
+reply="😊 Main theek hoon. Aap kaise ho?";
+
+}
+
+else if(text.includes("kya hal hai") || text.includes("kya haal hai")){
 
 reply="😊 Main bilkul theek hoon. Aap kaise ho?";
 
 }
 
-else if(text.includes("tum kaun ho") || text.includes("who are you")){
+else if(text.includes("kya naam hai") || text.includes("tumhara naam")){
+
+reply="🤖 Mera naam Gautam Assistant AI hai.";
+
+}
+
+else if(text.includes("who are you")){
 
 reply="🤖 Main Gautam Assistant AI hoon.";
 
 }
 
-else if(text.includes("tumhara naam") || text.includes("your name")){
+else if(text.includes("who made you")){
 
-reply="🤖 Mera naam Gautam Assistant AI hai.";
+reply="😎 Mujhe Gautam ne banaya hai.";
 
 }
 
@@ -45,6 +61,18 @@ reply="😊 Aapka swagat hai.";
 else if(text.includes("bye")){
 
 reply="👋 Bye! Phir milenge.";
+
+}
+
+else if(text.includes("time")){
+
+reply="🕒 " + new Date().toLocaleTimeString();
+
+}
+
+else if(text.includes("date")){
+
+reply="📅 " + new Date().toDateString();
 
 }
 
@@ -72,42 +100,6 @@ reply="🌙 Good night!";
 
 }
 
-else if(text.includes("time")){
-
-reply="🕒 "+new Date().toLocaleTimeString();
-
-}
-
-else if(text.includes("date")){
-
-reply="📅 "+new Date().toDateString();
-
-}
-
-else if(text.includes("how old are you")){
-
-reply="🤖 Main AI hoon. Meri age nahi hoti.";
-
-}
-
-else if(text.includes("who made you")){
-
-reply="😎 Mujhe Gautam ne banaya hai.";
-
-}
-
-else if(text.includes("where do you live")){
-
-reply="🌐 Main internet par kaam karta hoon.";
-
-}
-
-else if(text.includes("i love you")){
-
-reply="❤️ Thank you.";
-
-}
-
 else if(text.includes("joke")){
 
 reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
@@ -116,13 +108,13 @@ reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
 
 else if(text.includes("motivate me")){
 
-reply="💪 Kabhi haar mat mano. Roz thoda progress karo.";
+reply="💪 Kabhi haar mat mano. Roz thoda-thoda improve karo.";
 
 }
 
 else if(text.includes("study tip")){
 
-reply="📚 Roz revision karo.";
+reply="📚 Roz 1 ghanta revision zarur karo.";
 
 }
 
@@ -140,7 +132,7 @@ reply="🔬 Science ka question puchho.";
 
 else if(text.includes("english")){
 
-reply="📝 English ka question puchho.";
+reply="📘 English ka question puchho.";
 
 }
 
@@ -162,26 +154,78 @@ reply="🇮🇳 Bharat ki rajdhani New Delhi hai.";
 
 }
 
-else if(text.includes("india prime minister")){
+else if(text.includes("prime minister")){
 
 reply="🇮🇳 Bharat ke Prime Minister Narendra Modi hain.";
 
 }
 
-else if(text.includes("your favourite color")){
+else if(text.includes("national animal")){
 
-reply="🎨 Mera favourite color blue hai.";
+reply="🐅 Tiger Bharat ka rashtriya pashu hai.";
+
+}
+
+else if(text.includes("national bird")){
+
+reply="🦚 Peacock Bharat ka rashtriya pakshi hai.";
+
+}
+
+else if(text.includes("cricket")){
+
+reply="🏏 Cricket Bharat me bahut popular hai.";
+
+}
+
+else if(text.includes("football")){
+
+reply="⚽ Football duniya ka popular game hai.";
+
+}
+
+else if(text.includes("computer")){
+
+reply="💻 Computer ek electronic machine hai.";
+
+}
+
+else if(text.includes("mobile")){
+
+reply="📱 Mobile ka sahi upyog karo.";
+
+}
+
+else if(text.includes("internet")){
+
+reply="🌐 Internet knowledge ka achha source hai.";
+
+}
+
+else if(text.includes("water")){
+
+reply="💧 Roz zyada pani piyo.";
+
+}
+
+else if(text.includes("health")){
+
+reply="🥗 Healthy khana khao aur exercise karo.";
 
 }
 
 document.getElementById("chat").innerHTML +=
 
-'<div class="message">🧑 '+text+'</div>';
+'<div class="user">🧑 '+text+'</div>';
 
 document.getElementById("chat").innerHTML +=
 
-'<div class="message">🤖 '+reply+'</div>';
+'<div class="bot">🤖 '+reply+'</div>';
 
 document.getElementById("msg").value="";
 
+document.getElementById("chat").scrollTop=document.getElementById("chat").scrollHeight;
+
 }
+
+</script>
