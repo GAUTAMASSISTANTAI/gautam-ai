@@ -1,127 +1,176 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<title>Gautam Assistant AI</title>
-
-<style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#111827;
-color:white;
-}
-
-.container{
-max-width:900px;
-margin:30px auto;
-padding:20px;
-}
-
-h1{
-text-align:center;
-}
-
-#chat{
-height:450px;
-overflow-y:auto;
-background:#1f2937;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-}
-
-.message{
-background:#374151;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-}
-
-.input-box{
-display:flex;
-gap:10px;
-}
-
-input{
-flex:1;
-padding:15px;
-font-size:18px;
-border:none;
-border-radius:10px;
-}
-
-button{
-padding:15px 25px;
-font-size:18px;
-border:none;
-border-radius:10px;
-background:#2563eb;
-color:white;
-cursor:pointer;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>🤖 Gautam Assistant AI</h1>
-
-<div id="chat">
-
-<div class="message">
-
-🤖 Hello! Main Gautam Assistant AI hoon.
-
-</div>
-
-</div>
-
-<div class="input-box">
-
-<input id="msg" placeholder="Type a message">
-
-<button onclick="send()">
-
-Send
-
-</button>
-
-</div>
-
-</div>
-
-<script>
-
 function send(){
 
 let text=document.getElementById("msg").value.toLowerCase().trim();
 
 if(text=="") return;
 
-let reply="🤔 Mujhe abhi iska answer nahi pata.";
+let reply="🤔 Mujhe abhi iska answer nahi pata. Dusre shabdon me puchho.";
 
 if(text.includes("hello") || text.includes("hi")){
 
-reply="👋 Hello!";
+reply="👋 Hello! Aap kaise ho?";
 
 }
 
-else if(text.includes("kaise ho")){
+else if(text.includes("namaste")){
 
-reply="😊 Main theek hoon.";
+reply="🙏 Namaste!";
+
+}
+
+else if(text.includes("kaise ho") || text.includes("kya haal hai")){
+
+reply="😊 Main bilkul theek hoon. Aap kaise ho?";
+
+}
+
+else if(text.includes("tum kaun ho") || text.includes("who are you")){
+
+reply="🤖 Main Gautam Assistant AI hoon.";
+
+}
+
+else if(text.includes("tumhara naam") || text.includes("your name")){
+
+reply="🤖 Mera naam Gautam Assistant AI hai.";
+
+}
+
+else if(text.includes("thank you") || text.includes("shukriya")){
+
+reply="😊 Aapka swagat hai.";
+
+}
+
+else if(text.includes("bye")){
+
+reply="👋 Bye! Phir milenge.";
+
+}
+
+else if(text.includes("good morning")){
+
+reply="☀️ Good morning!";
+
+}
+
+else if(text.includes("good afternoon")){
+
+reply="🌤️ Good afternoon!";
+
+}
+
+else if(text.includes("good evening")){
+
+reply="🌇 Good evening!";
+
+}
+
+else if(text.includes("good night")){
+
+reply="🌙 Good night!";
 
 }
 
 else if(text.includes("time")){
 
 reply="🕒 "+new Date().toLocaleTimeString();
+
+}
+
+else if(text.includes("date")){
+
+reply="📅 "+new Date().toDateString();
+
+}
+
+else if(text.includes("how old are you")){
+
+reply="🤖 Main AI hoon. Meri age nahi hoti.";
+
+}
+
+else if(text.includes("who made you")){
+
+reply="😎 Mujhe Gautam ne banaya hai.";
+
+}
+
+else if(text.includes("where do you live")){
+
+reply="🌐 Main internet par kaam karta hoon.";
+
+}
+
+else if(text.includes("i love you")){
+
+reply="❤️ Thank you.";
+
+}
+
+else if(text.includes("joke")){
+
+reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
+
+}
+
+else if(text.includes("motivate me")){
+
+reply="💪 Kabhi haar mat mano. Roz thoda progress karo.";
+
+}
+
+else if(text.includes("study tip")){
+
+reply="📚 Roz revision karo.";
+
+}
+
+else if(text.includes("math")){
+
+reply="➕ Maths ka question puchho.";
+
+}
+
+else if(text.includes("science")){
+
+reply="🔬 Science ka question puchho.";
+
+}
+
+else if(text.includes("english")){
+
+reply="📝 English ka question puchho.";
+
+}
+
+else if(text.includes("hindi")){
+
+reply="📖 Hindi ka question puchho.";
+
+}
+
+else if(text.includes("sst")){
+
+reply="🌍 SST ka question puchho.";
+
+}
+
+else if(text.includes("india capital")){
+
+reply="🇮🇳 Bharat ki rajdhani New Delhi hai.";
+
+}
+
+else if(text.includes("india prime minister")){
+
+reply="🇮🇳 Bharat ke Prime Minister Narendra Modi hain.";
+
+}
+
+else if(text.includes("your favourite color")){
+
+reply="🎨 Mera favourite color blue hai.";
 
 }
 
@@ -136,9 +185,3 @@ document.getElementById("chat").innerHTML +=
 document.getElementById("msg").value="";
 
 }
-
-</script>
-
-</body>
-
-</html>
