@@ -1,41 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Gautam Assistant AI</title>
+
+<style>
+
+body{
+background:#1e1e1e;
+font-family:Arial,sans-serif;
+color:white;
+text-align:center;
+margin:0;
+}
+
+h1{
+margin-top:40px;
+}
+
+#chat{
+width:80%;
+max-width:700px;
+margin:20px auto;
+text-align:left;
+}
+
+.message{
+background:#333;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+}
+
+input{
+width:70%;
+padding:12px;
+font-size:18px;
+border-radius:8px;
+border:none;
+}
+
+button{
+padding:12px 20px;
+font-size:18px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🤖 Gautam Assistant AI</h1>
+
+<div id="chat"></div>
+
+<input id="msg" placeholder="Type a message">
+
+<button onclick="send()">Send</button>
+
+<script>
+
 function send(){
 
-let text=document.getElementById("msg").value.toLowerCase();
+let text=document.getElementById("msg").value;
 
 if(text=="") return;
 
-document.getElementById("chat").innerHTML +=
-'<div class="user-box">🧑 '+text+'</div>';
-
 let reply="Mujhe samajh nahi aaya.";
 
-if(text=="hello" || text=="hi"){
-
-reply="👋 Hello! Aap kaise ho?";
-
+if(text.toLowerCase()=="hello"){
+reply="👋 Hello!";
 }
 
-else if(text=="tumhara naam kya hai"){
-
-reply="🤖 Mera naam Gautam Assistant AI hai.";
-
+else if(text.toLowerCase()=="hi"){
+reply="👋 Hi!";
 }
 
-else if(text=="time"){
-
+else if(text.toLowerCase()=="time"){
 reply="🕒 "+new Date().toLocaleTimeString();
-
-}
-
-else if(text=="date"){
-
-reply="📅 "+new Date().toDateString();
-
 }
 
 document.getElementById("chat").innerHTML +=
-'<div class="ai-box">'+reply+'</div>';
+'<div class="message">🧑 '+text+'</div>';
+
+document.getElementById("chat").innerHTML +=
+'<div class="message">🤖 '+reply+'</div>';
 
 document.getElementById("msg").value="";
 
 }
+
+</script>
+
+</body>
+
+</html>
