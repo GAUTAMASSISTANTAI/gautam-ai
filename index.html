@@ -1,120 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Gautam Assistant AI</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f172a;
+color:white;
+}
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+h1{
+text-align:center;
+font-size:50px;
+}
+
+#chat{
+height:450px;
+overflow-y:auto;
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.message{
+background:#334155;
+padding:15px;
+border-radius:12px;
+margin:10px 0;
+font-size:18px;
+}
+
+.input-box{
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 Gautam Assistant AI</h1>
+
+<div id="chat">
+
+<div class="message">
+🤖 Hello! Main Gautam Assistant AI hoon.
+</div>
+
+</div>
+
+<div class="input-box">
+
+<input id="msg" placeholder="Type a message">
+
+<button onclick="send()">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
 <script>
 
 function send(){
 
-let text=document.getElementById("msg").value
-.toLowerCase()
-.trim();
+let text=document.getElementById("msg").value.toLowerCase();
 
 if(text=="") return;
 
-let reply="🤔 Mujhe abhi iska answer nahi pata. Dusre shabdon me puchho.";
+let reply="🤔 Mujhe abhi iska answer nahi pata.";
 
 if(text.includes("hello") || text.includes("hi")){
 
-reply="👋 Hello!";
-
-}
-
-else if(text.includes("how are you")){
-
-reply="😊 Main theek hoon. Aap kaise ho?";
+reply="👋 Hello! Aap kaise ho?";
 
 }
 
 else if(text.includes("kaise ho")){
 
-reply="😊 Main theek hoon. Aap kaise ho?";
-
-}
-
-else if(text.includes("kya hal hai") || text.includes("kya haal hai")){
-
-reply="😊 Main bilkul theek hoon. Aap kaise ho?";
-
-}
-
-else if(text.includes("kya naam hai") || text.includes("tumhara naam")){
-
-reply="🤖 Mera naam Gautam Assistant AI hai.";
-
-}
-
-else if(text.includes("who are you")){
-
-reply="🤖 Main Gautam Assistant AI hoon.";
-
-}
-
-else if(text.includes("who made you")){
-
-reply="😎 Mujhe Gautam ne banaya hai.";
-
-}
-
-else if(text.includes("thank you") || text.includes("shukriya")){
-
-reply="😊 Aapka swagat hai.";
-
-}
-
-else if(text.includes("bye")){
-
-reply="👋 Bye! Phir milenge.";
+reply="😊 Main theek hoon.";
 
 }
 
 else if(text.includes("time")){
 
-reply="🕒 " + new Date().toLocaleTimeString();
+reply="🕒 "+new Date().toLocaleTimeString();
 
 }
 
 else if(text.includes("date")){
 
-reply="📅 " + new Date().toDateString();
-
-}
-
-else if(text.includes("good morning")){
-
-reply="☀️ Good morning!";
-
-}
-
-else if(text.includes("good afternoon")){
-
-reply="🌤️ Good afternoon!";
-
-}
-
-else if(text.includes("good evening")){
-
-reply="🌇 Good evening!";
-
-}
-
-else if(text.includes("good night")){
-
-reply="🌙 Good night!";
-
-}
-
-else if(text.includes("joke")){
-
-reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
-
-}
-
-else if(text.includes("motivate me")){
-
-reply="💪 Kabhi haar mat mano. Roz thoda-thoda improve karo.";
-
-}
-
-else if(text.includes("study tip")){
-
-reply="📚 Roz 1 ghanta revision zarur karo.";
+reply="📅 "+new Date().toDateString();
 
 }
 
@@ -130,102 +143,26 @@ reply="🔬 Science ka question puchho.";
 
 }
 
-else if(text.includes("english")){
+else if(text.includes("joke")){
 
-reply="📘 English ka question puchho.";
-
-}
-
-else if(text.includes("hindi")){
-
-reply="📖 Hindi ka question puchho.";
-
-}
-
-else if(text.includes("sst")){
-
-reply="🌍 SST ka question puchho.";
-
-}
-
-else if(text.includes("india capital")){
-
-reply="🇮🇳 Bharat ki rajdhani New Delhi hai.";
-
-}
-
-else if(text.includes("prime minister")){
-
-reply="🇮🇳 Bharat ke Prime Minister Narendra Modi hain.";
-
-}
-
-else if(text.includes("national animal")){
-
-reply="🐅 Tiger Bharat ka rashtriya pashu hai.";
-
-}
-
-else if(text.includes("national bird")){
-
-reply="🦚 Peacock Bharat ka rashtriya pakshi hai.";
-
-}
-
-else if(text.includes("cricket")){
-
-reply="🏏 Cricket Bharat me bahut popular hai.";
-
-}
-
-else if(text.includes("football")){
-
-reply="⚽ Football duniya ka popular game hai.";
-
-}
-
-else if(text.includes("computer")){
-
-reply="💻 Computer ek electronic machine hai.";
-
-}
-
-else if(text.includes("mobile")){
-
-reply="📱 Mobile ka sahi upyog karo.";
-
-}
-
-else if(text.includes("internet")){
-
-reply="🌐 Internet knowledge ka achha source hai.";
-
-}
-
-else if(text.includes("water")){
-
-reply="💧 Roz zyada pani piyo.";
-
-}
-
-else if(text.includes("health")){
-
-reply="🥗 Healthy khana khao aur exercise karo.";
+reply="😂 Teacher: Homework kahan hai? Student: Sir, network issue tha.";
 
 }
 
 document.getElementById("chat").innerHTML +=
 
-'<div class="user">🧑 '+text+'</div>';
+'<div class="message">🧑 '+text+'</div>';
 
 document.getElementById("chat").innerHTML +=
 
-'<div class="bot">🤖 '+reply+'</div>';
+'<div class="message">🤖 '+reply+'</div>';
 
 document.getElementById("msg").value="";
-
-document.getElementById("chat").scrollTop=document.getElementById("chat").scrollHeight;
 
 }
 
 </script>
+
+</body>
+
+</html>
