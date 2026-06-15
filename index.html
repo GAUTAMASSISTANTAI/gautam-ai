@@ -2,41 +2,131 @@
 <html>
 
 <head>
-  <title>Gautam Assistant AI</title>
 
-  <style>
-    body{
-      font-family: Arial;
-      text-align:center;
-      background:#f0f8ff;
-      padding:50px;
-    }
+<title>Gautam Assistant AI</title>
 
-    h1{
-      color:#0d6efd;
-    }
+<style>
 
-    button{
-      padding:12px 20px;
-      font-size:18px;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-    }
-  </style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#343541;
+}
+
+.header{
+background:#202123;
+color:white;
+padding:20px;
+text-align:center;
+font-size:32px;
+font-weight:bold;
+}
+
+.chat-area{
+max-width:800px;
+margin:30px auto;
+padding:20px;
+}
+
+.ai-box{
+background:#444654;
+color:white;
+padding:18px;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.user-box{
+background:#2d3748;
+color:white;
+padding:18px;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.input-area{
+position:fixed;
+bottom:0;
+width:100%;
+background:#202123;
+padding:20px;
+text-align:center;
+}
+
+input{
+width:60%;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-left:10px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>🤖 Gautam Assistant AI</h1>
+<div class="header">
 
-<p>Welcome to my first AI website.</p>
+🤖 Gautam Assistant AI
 
-<p>Made by Gautam Kumar</p>
+</div>
 
-<button onclick="alert('Hello Gautam!')">
-Click Me
+<div class="chat-area">
+
+<div class="ai-box">
+
+👋 Hello Gautam! Welcome.
+
+</div>
+
+<div id="chat"></div>
+
+</div>
+
+<div class="input-area">
+
+<input id="msg" placeholder="Type a message...">
+
+<button onclick="send()">
+
+Send
+
 </button>
+
+</div>
+
+<script>
+
+function send(){
+
+let text=document.getElementById("msg").value;
+
+if(text=="") return;
+
+document.getElementById("chat").innerHTML +=
+
+'<div class="user-box">🧑 '+text+'</div>';
+
+document.getElementById("chat").innerHTML +=
+
+'<div class="ai-box">🤖 You said: '+text+'</div>';
+
+document.getElementById("msg").value="";
+
+}
+
+</script>
 
 </body>
 
