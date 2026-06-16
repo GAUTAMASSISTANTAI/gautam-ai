@@ -11,15 +11,10 @@
 
 body{
 margin:0;
+padding:20px;
 font-family:Arial,sans-serif;
 background:#0f172a;
 color:white;
-}
-
-.container{
-max-width:900px;
-margin:20px auto;
-padding:20px;
 }
 
 h1{
@@ -27,17 +22,17 @@ text-align:center;
 }
 
 #chat{
-height:450px;
-overflow-y:auto;
+height:400px;
 background:#1e293b;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
+padding:15px;
+border-radius:12px;
+overflow-y:auto;
+margin-bottom:15px;
 }
 
 .user{
 background:#2563eb;
-padding:12px;
+padding:10px;
 margin:10px 0;
 border-radius:10px;
 text-align:right;
@@ -45,18 +40,13 @@ text-align:right;
 
 .bot{
 background:#334155;
-padding:12px;
+padding:10px;
 margin:10px 0;
 border-radius:10px;
 }
 
-.input-box{
-display:flex;
-gap:10px;
-}
-
 input{
-flex:1;
+width:75%;
 padding:15px;
 font-size:18px;
 border:none;
@@ -64,13 +54,11 @@ border-radius:10px;
 }
 
 button{
-padding:15px 25px;
+padding:15px 20px;
 font-size:18px;
 border:none;
 border-radius:10px;
 cursor:pointer;
-background:#2563eb;
-color:white;
 }
 
 </style>
@@ -79,41 +67,27 @@ color:white;
 
 <body>
 
-<div class="container">
-
 <h1>🤖 Gautam Assistant AI</h1>
 
 <div id="chat">
 
 <div class="bot">
 
-👋 Namaste! Main Gautam Assistant AI hoon.
+👋 Hello! Main Gautam Assistant AI hoon.
 
 </div>
 
 </div>
 
-<div class="input-box">
+<input id="msg" placeholder="Type here">
 
-<input id="msg" placeholder="Type your message">
-
-<button onclick="send()">
-
-Send
-
-</button>
-
-</div>
-
-</div>
+<button onclick="send()">Send</button>
 
 <script>
 
 function send(){
 
-let text=document.getElementById("msg").value
-.toLowerCase()
-.trim();
+let text=document.getElementById("msg").value.toLowerCase().trim();
 
 if(text=="") return;
 
@@ -125,33 +99,51 @@ reply="👋 Hello!";
 
 }
 
-else if(text.includes("kaise ho")){
+else if(text.includes("how are you")){
 
-reply="😊 Main theek hoon. Aap kaise ho?";
+reply="😊 I am fine. How are you?";
 
 }
 
-else if(text.includes("kya haal hai")){
+if(text.includes("ka hal ba ") || text.includes("thik ba nu ")){
+
+reply="👋 mai theek hu ( aap kaise ho ) !";
+
+}
+
+else if(text.includes("kaise ho")){
+
+reply="😊 Main theek hoon. Tum kaise ho?";
+
+}
+
+else if(text.includes("kya hal hai") || text.includes("kya haal hai")){
 
 reply="😊 Main bilkul theek hoon.";
 
 }
 
-else if(text.includes("tum kaun ho")){
+else if(text=="2+2"){
 
-reply="🤖 Main Gautam Assistant AI hoon.";
-
-}
-
-else if(text.includes("thank you")){
-
-reply="😊 Aapka swagat hai.";
+reply="4";
 
 }
 
-else if(text.includes("joke")){
+else if(text=="5+5"){
 
-reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
+reply="10";
+
+}
+
+else if(text=="10+10"){
+
+reply="20";
+
+}
+
+else if(text=="12*12"){
+
+reply="144";
 
 }
 
@@ -167,64 +159,39 @@ reply="📅 "+new Date().toDateString();
 
 }
 
-else if(text.includes("good morning")){
+else if(text.includes("joke")){
 
-reply="☀️ Good morning!";
-
-}
-
-else if(text.includes("good night")){
-
-reply="🌙 Good night!";
+reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
 
 }
 
-else if(text.includes("math")){
+else if(text.includes("thank you")){
 
-reply="➕ Maths ka question puchho.";
-
-}
-
-else if(text.includes("science")){
-
-reply="🔬 Science ka question puchho.";
+reply="😊 You're welcome!";
 
 }
+else if(text.includes("who are you")){
 
-else if(text.includes("school")){
-
-reply="🏫 Roz school jao aur padhai karo.";
-
-}
-
-else if(text.includes("study")){
-
-reply="📚 Roz revision karo.";
-
-}
-
-else if(text.includes("motivate")){
-
-reply="💪 Kabhi haar mat mano.";
-
+reply="😊 Mai ek AI hu ";
 }
 
 else if(text.includes("bye")){
 
-reply="👋 Bye! Phir milenge.";
+reply="👋 Bye!";
 
 }
 
 document.getElementById("chat").innerHTML +=
+
 '<div class="user">🧑 '+text+'</div>';
 
 document.getElementById("chat").innerHTML +=
+
 '<div class="bot">🤖 '+reply+'</div>';
 
 document.getElementById("msg").value="";
 
-document.getElementById("chat").scrollTop=
-document.getElementById("chat").scrollHeight;
+document.getElementById("chat").scrollTop=document.getElementById("chat").scrollHeight;
 
 }
 
