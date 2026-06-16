@@ -3,6 +3,8 @@
 
 <head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Gautam Assistant AI</title>
 
 <style>
@@ -16,13 +18,12 @@ color:white;
 
 .container{
 max-width:900px;
-margin:40px auto;
+margin:20px auto;
 padding:20px;
 }
 
 h1{
 text-align:center;
-font-size:50px;
 }
 
 #chat{
@@ -34,12 +35,19 @@ border-radius:15px;
 margin-bottom:20px;
 }
 
-.message{
-background:#334155;
-padding:15px;
-border-radius:12px;
+.user{
+background:#2563eb;
+padding:12px;
 margin:10px 0;
-font-size:18px;
+border-radius:10px;
+text-align:right;
+}
+
+.bot{
+background:#334155;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
 }
 
 .input-box{
@@ -60,9 +68,9 @@ padding:15px 25px;
 font-size:18px;
 border:none;
 border-radius:10px;
+cursor:pointer;
 background:#2563eb;
 color:white;
-cursor:pointer;
 }
 
 </style>
@@ -77,15 +85,17 @@ cursor:pointer;
 
 <div id="chat">
 
-<div class="message">
-🤖 Hello! Main Gautam Assistant AI hoon.
+<div class="bot">
+
+👋 Namaste! Main Gautam Assistant AI hoon.
+
 </div>
 
 </div>
 
 <div class="input-box">
 
-<input id="msg" placeholder="Type a message">
+<input id="msg" placeholder="Type your message">
 
 <button onclick="send()">
 
@@ -101,7 +111,9 @@ Send
 
 function send(){
 
-let text=document.getElementById("msg").value.toLowerCase();
+let text=document.getElementById("msg").value
+.toLowerCase()
+.trim();
 
 if(text=="") return;
 
@@ -109,13 +121,37 @@ let reply="🤔 Mujhe abhi iska answer nahi pata.";
 
 if(text.includes("hello") || text.includes("hi")){
 
-reply="👋 Hello! Aap kaise ho?";
+reply="👋 Hello!";
 
 }
 
 else if(text.includes("kaise ho")){
 
-reply="😊 Main theek hoon.";
+reply="😊 Main theek hoon. Aap kaise ho?";
+
+}
+
+else if(text.includes("kya haal hai")){
+
+reply="😊 Main bilkul theek hoon.";
+
+}
+
+else if(text.includes("tum kaun ho")){
+
+reply="🤖 Main Gautam Assistant AI hoon.";
+
+}
+
+else if(text.includes("thank you")){
+
+reply="😊 Aapka swagat hai.";
+
+}
+
+else if(text.includes("joke")){
+
+reply="😂 Teacher: Homework kahan hai? Student: Sir network issue tha.";
 
 }
 
@@ -131,6 +167,18 @@ reply="📅 "+new Date().toDateString();
 
 }
 
+else if(text.includes("good morning")){
+
+reply="☀️ Good morning!";
+
+}
+
+else if(text.includes("good night")){
+
+reply="🌙 Good night!";
+
+}
+
 else if(text.includes("math")){
 
 reply="➕ Maths ka question puchho.";
@@ -143,21 +191,40 @@ reply="🔬 Science ka question puchho.";
 
 }
 
-else if(text.includes("joke")){
+else if(text.includes("school")){
 
-reply="😂 Teacher: Homework kahan hai? Student: Sir, network issue tha.";
+reply="🏫 Roz school jao aur padhai karo.";
+
+}
+
+else if(text.includes("study")){
+
+reply="📚 Roz revision karo.";
+
+}
+
+else if(text.includes("motivate")){
+
+reply="💪 Kabhi haar mat mano.";
+
+}
+
+else if(text.includes("bye")){
+
+reply="👋 Bye! Phir milenge.";
 
 }
 
 document.getElementById("chat").innerHTML +=
-
-'<div class="message">🧑 '+text+'</div>';
+'<div class="user">🧑 '+text+'</div>';
 
 document.getElementById("chat").innerHTML +=
-
-'<div class="message">🤖 '+reply+'</div>';
+'<div class="bot">🤖 '+reply+'</div>';
 
 document.getElementById("msg").value="";
+
+document.getElementById("chat").scrollTop=
+document.getElementById("chat").scrollHeight;
 
 }
 
